@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = "http://localhost:5241";
+// שימוש במשתנה סביבה לכתובת ה-API
+const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5241"; // ברירת מחדל לכתובת לוקאלית
+axios.defaults.baseURL = apiUrl;
+
 
 axios.interceptors.response.use(
   (response) => response,  // החזרת ה-response כפי שהוא אם הוא הצליח
