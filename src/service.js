@@ -1,8 +1,14 @@
 import axios from 'axios';
 
 // שימוש במשתנה סביבה לכתובת ה-API
-const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5241"; // ברירת מחדל לכתובת לוקאלית
-axios.defaults.baseURL = apiUrl;
+// שימוש במשתנה סביבה, עם ברירת מחדל לכתובת לוקאלית אם אין משתנה סביבה
+const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5241";  
+
+// אם לא ב-Render (במקרה של פיתוח מקומי), אין צורך להוסיף /api
+const baseUrl = process.env.REACT_APP_API_URL ? `${apiUrl}/api` : apiUrl;
+
+axios.defaults.baseURL = baseUrl;  // הגדרת baseURL
+
 
 
 axios.interceptors.response.use(
