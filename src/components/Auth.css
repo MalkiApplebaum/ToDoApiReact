@@ -73,3 +73,10 @@
 .nav-btn:hover {
   background-color: #36c2b6; /* צבע ירוק טורקיז כהה יותר */
 }
+
+/* .nav-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f8f9fa;
+  padding: 10px;
+} */
