@@ -7,6 +7,7 @@ const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState(''); // שינוי מ-mail ל-email
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // מצב לניהול תצוגת הסיסמה
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const navigate = useNavigate();
@@ -60,13 +61,22 @@ const Register = () => {
           />
         </div>
         <div className="form-group">
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+        <label>Password:</label>
+          <div className="password-container">
+            <input
+              type={showPassword ? "text" : "password"} // שינוי סוג השדה בהתאם למצב
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button
+              type="button"
+              className="toggle-password"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "🙈" : "👁️"} {/* אייקון עין */}
+            </button>
+          </div>
         </div>
         {error && <p className="error">{error}</p>}
         {success && <p className="success">{success}</p>}
