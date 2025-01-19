@@ -1,0 +1,6 @@
+.no-tasks {
+    color: #40E0D0; /* צבע תכלת */
+    font-size: 14px; /* גודל כתב קטן יותר */
+    text-align: center; /* ממרכז את הטקסט */
+    margin-top: 20px; /* מרווח עליון */
+  }
