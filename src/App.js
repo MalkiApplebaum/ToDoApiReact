@@ -16,7 +16,6 @@ function App() {
   };
 
   return (
-    <Router>
       <div>
       <nav className="nav-container">
         <Link to="/homePage" className="nav-btn">TASKS</Link>
@@ -32,7 +31,6 @@ function App() {
           <Route path="/signup" element={<Register />} /> {/* דף הרשמה */}
         </Routes>
       </div>
-    </Router>
   );
 }
 
