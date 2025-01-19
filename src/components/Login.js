@@ -6,6 +6,7 @@ import './Auth.css'; // ייבוא קובץ ה-CSS
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // מצב לניהול תצוגת הסיסמה
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -17,10 +18,8 @@ const Login = () => {
         username,
         password,
       });
-
       // Save the JWT token in sessionStorage
       sessionStorage.setItem('token', response.data.token);
-
       // Redirect to the homepage
       navigate('/homePage');
     } catch (error) {
@@ -45,13 +44,22 @@ const Login = () => {
           />
         </div>
         <div className="form-group">
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+        <label>Password:</label>
+          <div className="password-container">
+            <input
+              type={showPassword ? "text" : "password"} // שינוי סוג השדה בהתאם למצב
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button
+              type="button"
+              className="toggle-password"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "🙈" : "👁️"} {/* אייקון עין */}
+            </button>
+          </div>
         </div>
         {error && <p className="error">{error}</p>}
         <button type="submit" className="btn">SIGN IN</button>
