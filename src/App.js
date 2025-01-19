@@ -17,13 +17,13 @@ function App() {
 
   return (
       <div>
-      <nav className="nav-container">
+      {/* <nav className="nav-container">
         <Link to="/homePage" className="nav-btn">TASKS</Link>
         <Link to="/" className="nav-btn">SIGN IN</Link>
         <Link to="/signup" className="nav-btn">SIGN UP</Link>
         <button onClick={handleLogout} className="nav-btn">LOGOUT</button>
 
-        </nav>
+        </nav> */}
 
         <Routes>
           <Route path="/" element={<Login />} /> {/* דף הבית */}
